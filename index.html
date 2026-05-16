@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Anthropic《The Founder's Playbook》简体中文翻译 - AI 原生创业公司构建指南">
+    <meta name="author" content="sqwu">
+    <meta name="contact" content="958093790@qq.com">
+    <title>创始人手册：构建 AI 原生创业公司 | The Founder's Playbook</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans SC', sans-serif;
+        }
+        .toc-link {
+            transition: all 0.2s ease;
+        }
+        .toc-link:hover {
+            transform: translateX(4px);
+            color: #3b82f6;
+        }
+        .chapter-card {
+            transition: all 0.3s ease;
+        }
+        .chapter-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.15);
+        }
+        .scroll-indicator {
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 min-h-screen">
+    <!-- Hero Section -->
+    <header class="relative overflow-hidden bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white">
+        <div class="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width%3D%2260%22%20height%3D%2260%22%20viewBox%3D%220%200%2060%2060%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cg%20fill%3D%22none%22%20fill-rule%3D%22evenodd%22%3E%3Cg%20fill%3D%22%23ffffff%22%20fill-opacity%3D%220.05%22%3E%3Cpath%20d%3D%22M36%2034v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6%2034v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6%204V0H4v4H0v2h4v4h2V6h4V4H6z%22%2F%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E')] opacity-50"></div>
+        <div class="relative container mx-auto px-6 py-20 lg:py-28">
+            <div class="max-w-4xl mx-auto text-center">
+                <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-4 py-2 mb-6">
+                    <span class="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                    <span class="text-sm font-medium">AI 原生创业指南 · 简体中文版</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
+                    The Founder's Playbook
+                </h1>
+                <h2 class="text-2xl md:text-3xl font-light mb-4 text-blue-100">
+                    构建 AI 原生创业公司
+                </h2>
+                <p class="text-lg text-blue-200 max-w-2xl mx-auto mb-10">
+                    Anthropic 出品 | 为 2026 年重新定义创业生命周期 —— AI 如何压缩时间线、降低门槛，并为创始人开辟新的可能性
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                    <a href="#toc" class="px-8 py-3 bg-white text-blue-600 font-semibold rounded-lg hover:bg-blue-50 transition-colors shadow-lg">
+                        开始阅读
+                    </a>
+                    <a href="The-Founders-Playbook-zh.md" class="px-8 py-3 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                        查看 Markdown 版本
+                    </a>
+                    <a href="https://github.com/sqwu/ai-founders-playbook-zh" target="_blank" class="px-8 py-3 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors">
+                        GitHub 仓库
+                    </a>
+                </div>
+                <div class="mt-16 scroll-indicator">
+                    <svg class="w-8 h-8 mx-auto text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section class="py-12 bg-white border-b border-gray-200">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <div class="grid md:grid-cols-3 gap-6 text-center">
+                <div>
+                    <div class="text-3xl mb-2">📖</div>
+                    <h3 class="font-semibold text-gray-800 mb-1">完整翻译</h3>
+                    <p class="text-gray-500 text-sm">Anthropic 官方文档完整中文翻译</p>
+                </div>
+                <div>
+                    <div class="text-3xl mb-2">🎯</div>
+                    <h3 class="font-semibold text-gray-800 mb-1">实用指南</h3>
+                    <p class="text-gray-500 text-sm">涵盖创意到扩展的全阶段策略</p>
+                </div>
+                <div>
+                    <div class="text-3xl mb-2">🤖</div>
+                    <h3 class="font-semibold text-gray-800 mb-1">AI 时代</h3>
+                    <p class="text-gray-500 text-sm">专为 AI 原生创业设计的方法论</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section id="toc" class="py-16 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-4">目录</h2>
+                <p class="text-gray-500">探索创业旅程的四个核心阶段</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="chapter-card bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-6 border border-blue-200">
+                    <div class="text-4xl font-bold text-blue-600 mb-4">01</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">创业生命周期</h3>
+                    <p class="text-gray-600 text-sm">为 2026 年重新规划</p>
+                    <a href="#chapter-1" class="inline-block mt-4 text-blue-600 font-medium hover:text-blue-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-indigo-50 to-indigo-100 rounded-2xl p-6 border border-indigo-200">
+                    <div class="text-4xl font-bold text-indigo-600 mb-4">02</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">创始人角色</h3>
+                    <p class="text-gray-600 text-sm">正在发生的转变</p>
+                    <a href="#chapter-2" class="inline-block mt-4 text-indigo-600 font-medium hover:text-indigo-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-6 border border-purple-200">
+                    <div class="text-4xl font-bold text-purple-600 mb-4">03</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">创意阶段</h3>
+                    <p class="text-gray-600 text-sm">验证问题-解决方案匹配</p>
+                    <a href="#chapter-3" class="inline-block mt-4 text-purple-600 font-medium hover:text-purple-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-pink-50 to-pink-100 rounded-2xl p-6 border border-pink-200">
+                    <div class="text-4xl font-bold text-pink-600 mb-4">04</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">MVP 阶段</h3>
+                    <p class="text-gray-600 text-sm">构建最小可行产品</p>
+                    <a href="#chapter-4" class="inline-block mt-4 text-pink-600 font-medium hover:text-pink-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-6 border border-green-200">
+                    <div class="text-4xl font-bold text-green-600 mb-4">05</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">启动阶段</h3>
+                    <p class="text-gray-600 text-sm">建立可持续增长引擎</p>
+                    <a href="#chapter-5" class="inline-block mt-4 text-green-600 font-medium hover:text-green-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-yellow-50 to-yellow-100 rounded-2xl p-6 border border-yellow-200">
+                    <div class="text-4xl font-bold text-yellow-600 mb-4">06</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">扩展阶段</h3>
+                    <p class="text-gray-600 text-sm">从初创到成熟企业</p>
+                    <a href="#chapter-6" class="inline-block mt-4 text-yellow-600 font-medium hover:text-yellow-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-orange-50 to-orange-100 rounded-2xl p-6 border border-orange-200">
+                    <div class="text-4xl font-bold text-orange-600 mb-4">07</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">新规则</h3>
+                    <p class="text-gray-600 text-sm">同样的工作，不同的方法</p>
+                    <a href="#chapter-7" class="inline-block mt-4 text-orange-600 font-medium hover:text-orange-700">阅读章节 →</a>
+                </div>
+                <div class="chapter-card bg-gradient-to-br from-red-50 to-red-100 rounded-2xl p-6 border border-red-200">
+                    <div class="text-4xl font-bold text-red-600 mb-4">08</div>
+                    <h3 class="text-xl font-semibold text-gray-800 mb-2">资源</h3>
+                    <p class="text-gray-600 text-sm">工具与学习资料</p>
+                    <a href="#resources" class="inline-block mt-4 text-red-600 font-medium hover:text-red-700">查看资源 →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chapters -->
+    <main class="container mx-auto px-6 py-16 max-w-5xl">
+        <!-- Chapter 1 -->
+        <section id="chapter-1" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">1</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">创业生命周期：为 2026 年重新规划</h2>
+                    <p class="text-gray-500 mt-1">The startup lifecycle, rebooted for 2026</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    AI 正在重塑创业公司的构建方式。从未写过一行代码的创始人如今也能发布生产级应用，而只有 10 人的精益独角兽公司已经从草根逆袭故事变成了深思熟虑的行动计划。
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    2026 年，AI 可以编写生产代码、进行市场调研、分析竞争格局、起草投资者材料，并自动化运营工作流。通过消除即使是经验丰富的技术创始人在整合工具、平台和系统时曾经面临的陡峭学习曲线，AI 首先实现了在谁可以创办创业公司或开发产品方面的公平竞争。
+                </p>
+                <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-r-xl mb-6">
+                    <p class="text-blue-800 font-semibold mb-2">💡 关键洞察</p>
+                    <p class="text-blue-700">
+                        传统的创业增长弧线假设从创意到扩展的路径是：验证 → 融资 → 招聘 → 开发 → 再次融资 → 增长 → 更多招聘 → 重复。现在，AI 已经消除了这样的期望：创业生命周期的每个新阶段都需要更大的团队、不同的技能组合和新一轮融资。
+                    </p>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-1" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 2 -->
+        <section id="chapter-2" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-indigo-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">2</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">创始人的角色正在改变</h2>
+                    <p class="text-gray-500 mt-1">What it means to be a founder is changing</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    过去，创始人是由他们能做什么来定义的：技术创始人编写代码，非技术创始人负责业务运营和达成交易。但 2026 年为创始人提供的模型、设计、系统和 AI 代理已经打破了"能够构建的人"和"有值得构建的想法的人"之间的壁垒。
+                </p>
+                <div class="grid md:grid-cols-3 gap-6 mb-6">
+                    <div class="bg-indigo-50 rounded-xl p-5">
+                        <div class="text-2xl mb-3">💬</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">对话智能与研究</h4>
+                        <p class="text-gray-600 text-sm">每个领域都有随叫随到的专家，AI 可以进行深度研究、文档起草和战略思考。</p>
+                    </div>
+                    <div class="bg-purple-50 rounded-xl p-5">
+                        <div class="text-2xl mb-3">💻</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">智能编码</h4>
+                        <p class="text-gray-600 text-sm">AI 可以生成、测试、调试和重构生产级代码，将"我有一个想法"到"我有一个产品"的时间线压缩。</p>
+                    </div>
+                    <div class="bg-pink-50 rounded-xl p-5">
+                        <div class="text-2xl mb-3">⚙️</div>
+                        <h4 class="font-semibold text-gray-800 mb-2">工作流自动化</h4>
+                        <p class="text-gray-600 text-sm">重复性操作任务可以配置为自动执行，减轻创始人的运营负担。</p>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-2" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 3 -->
+        <section id="chapter-3" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">3</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">创意阶段</h2>
+                    <p class="text-gray-500 mt-1">Idea Stage</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    每个创业公司创始人都从同一个地方开始：一个他们无法停止思考的问题。这是创意与现实相遇的创业阶段：2026 年的创业成功要求在证据证明之前不要构建的纪律。
+                </p>
+                <div class="bg-yellow-50 border-l-4 border-yellow-500 p-6 rounded-r-xl mb-6">
+                    <p class="text-yellow-800 font-semibold mb-2">🎯 创意阶段目标</p>
+                    <p class="text-yellow-700">
+                        在创意阶段，创始人的主要目标是研究导向的验证：在投入资源构建之前，收集确凿证据证明存在真实问题（以及你提出的解决方案能有效解决它）。
+                    </p>
+                </div>
+                <div class="bg-green-50 border-l-4 border-green-500 p-6 rounded-r-xl">
+                    <p class="text-green-800 font-semibold mb-2">✅ 退出标准</p>
+                    <ul class="text-green-700 space-y-2">
+                        <li>• 问题是否真实且具体？</li>
+                        <li>• 你的解决方案是否解决了实际问题？</li>
+                        <li>• 你有足够的信号证明值得构建吗？</li>
+                    </ul>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-3" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 4 -->
+        <section id="chapter-4" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-pink-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">4</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">MVP 阶段</h2>
+                    <p class="text-gray-500 mt-1">MVP Stage</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    许多创始人将 MVP 阶段视为建设阶段，但 MVP 阶段本质上仍然是收集证据的练习。不同之处在于，你现在正在收集关于解决方案的证据，而不是问题空间；具体来说，是否有一群真实的、可识别的人发现它足够有价值，可以使用它、返回使用它、为它付费和/或告诉其他人。
+                </p>
+                <div class="bg-red-50 border-l-4 border-red-500 p-6 rounded-r-xl mb-6">
+                    <p class="text-red-800 font-semibold mb-2">⚠️ 常见挑战</p>
+                    <ul class="text-red-700 space-y-2">
+                        <li>• <strong>智能技术债务：</strong>AI 消除了技术瓶颈，但速度优先可能导致难以偿还的技术债务</li>
+                        <li>• <strong>虚假产品-市场匹配：</strong>早期数据可能产生误导，需要验证真实的产品-市场匹配</li>
+                        <li>• <strong>安全性不足：</strong>AI 生成的代码功能正常但不一定安全</li>
+                    </ul>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-4" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 5 -->
+        <section id="chapter-5" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-green-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">5</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">启动阶段</h2>
+                    <p class="text-gray-500 mt-1">Launch Stage</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    如果 MVP 阶段是关于证明你的产品值得存在，那么启动阶段就是关于证明你的业务值得增长。在启动阶段，创业公司创始人必须将早期牵引力转化为可重复、可持续的增长引擎。
+                </p>
+                <div class="grid md:grid-cols-3 gap-4 mb-6">
+                    <div class="text-center p-6 bg-gradient-to-br from-green-50 to-emerald-50 rounded-xl">
+                        <div class="text-3xl font-bold text-green-600 mb-2">1</div>
+                        <div class="text-gray-800 font-medium">可重复增长</div>
+                        <div class="text-gray-500 text-sm">通过特定渠道获取用户</div>
+                    </div>
+                    <div class="text-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50 rounded-xl">
+                        <div class="text-3xl font-bold text-blue-600 mb-2">2</div>
+                        <div class="text-gray-800 font-medium">生产就绪</div>
+                        <div class="text-gray-500 text-sm">基础设施已加强</div>
+                    </div>
+                    <div class="text-center p-6 bg-gradient-to-br from-purple-50 to-violet-50 rounded-xl">
+                        <div class="text-3xl font-bold text-purple-600 mb-2">3</div>
+                        <div class="text-gray-800 font-medium">运营独立</div>
+                        <div class="text-gray-500 text-sm">无需创始人干预</div>
+                    </div>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-5" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 6 -->
+        <section id="chapter-6" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-yellow-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">6</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">扩展阶段</h2>
+                    <p class="text-gray-500 mt-1">Scale Stage</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    在扩展阶段，创始人的角色从构建者重新集中到面向公众的高管。产品仍然是核心，但你个人的日常工作越来越多地涉及公司本身。你的注意力必须扩展到新的扩展阶段活动，如分析师简报和 IPO 路演，同时努力保持精益、以 AI 为中心的结构优势。
+                </p>
+                <div class="bg-orange-50 border-l-4 border-orange-500 p-6 rounded-r-xl mb-6">
+                    <p class="text-orange-800 font-semibold mb-2">🏰 构建护城河</p>
+                    <p class="text-orange-700">
+                        对于 AI 原生创业公司，你的目标应该是通过积累的深度建立防御性护城河，这源于你融入产品的专业知识、产品与用户依赖的其他工具和平台的深度集成，以及专有系统数据和工作流。
+                    </p>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-6" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Chapter 7 -->
+        <section id="chapter-7" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">7</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">同样的工作，新的规则</h2>
+                    <p class="text-gray-500 mt-1">Same job, new rules</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <p class="text-gray-700 leading-relaxed mb-6">
+                    在 AI 时代，创始人的工作没有改变：找到一个真正的问题，构建解决它的东西，并将其扩展成一家重要的公司。改变的是到达那里的路径。在四个阶段——创意、MVP、启动和扩展——AI 将季度压缩成几周。
+                </p>
+                <div class="bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 rounded-xl p-8 text-white text-center">
+                    <p class="text-xl font-semibold mb-4">瓶颈不再是你能构建什么，而是你选择构建什么。</p>
+                    <p class="text-blue-100">—— The Founder's Playbook</p>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#chapter-7" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Resources -->
+        <section id="resources" class="mb-20">
+            <div class="flex items-center gap-4 mb-8">
+                <div class="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center text-white font-bold text-xl">8</div>
+                <div>
+                    <h2 class="text-3xl font-bold text-gray-800">资源</h2>
+                    <p class="text-gray-500 mt-1">Resources</p>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl shadow-lg p-8 border border-gray-100">
+                <h3 class="text-xl font-semibold text-gray-800 mb-6">使用 Claude 构建</h3>
+                <div class="grid md:grid-cols-2 gap-4 mb-8">
+                    <div class="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors">
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-700">为创业公司构建 AI 代理</a>
+                        <p class="text-gray-500 text-sm mt-1">分享创业公司如何使用代理减少对创始人的依赖</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors">
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-700">Claude Code 文档</a>
+                        <p class="text-gray-500 text-sm mt-1">从初始安装到高级智能工作流的完整指南</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors">
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-700">Claude Code 最佳实践</a>
+                        <p class="text-gray-500 text-sm mt-1">上下文管理、权限、规划和验证工作流</p>
+                    </div>
+                    <div class="bg-gray-50 rounded-xl p-4 hover:bg-gray-100 transition-colors">
+                        <a href="#" class="text-blue-600 font-medium hover:text-blue-700">Claude Cowork 入门</a>
+                        <p class="text-gray-500 text-sm mt-1">设置技能、插件和扩展功能</p>
+                    </div>
+                </div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">创始人故事</h3>
+                <div class="bg-blue-50 rounded-xl p-6">
+                    <p class="text-gray-700">探索成功的 AI 原生创业公司如何利用 Claude 构建他们的业务，包括 HumanLayer、Carta Healthcare、Kindora 等案例研究。</p>
+                </div>
+                <div class="text-sm text-gray-500 mt-6">
+                    📄 完整内容请查看：<a href="The-Founders-Playbook-zh.md#resources" class="text-blue-600 hover:text-blue-700">The-Founders-Playbook-zh.md</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-2">The Founder's Playbook</h3>
+                    <p class="text-gray-400 text-sm">构建 AI 原生创业公司 · 简体中文版</p>
+                </div>
+                <div class="flex gap-6">
+                    <a href="https://github.com/sqwu/ai-founders-playbook-zh" class="text-gray-400 hover:text-white transition-colors">GitHub</a>
+                    <a href="mailto:958093790@qq.com" class="text-gray-400 hover:text-white transition-colors">邮箱</a>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <div class="mb-4">
+                    <p class="text-gray-400 text-sm mb-2">联系方式</p>
+                    <p class="text-gray-300">📧 958093790@qq.com | 💬 微信：jiurong6668</p>
+                </div>
+                <p class="text-gray-500 text-sm">
+                    © 2024 Anthropic. 简体中文翻译，由 sqwu 贡献。
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+            class="fixed bottom-6 right-6 bg-blue-600 text-white w-12 h-12 rounded-full shadow-lg hover:bg-blue-700 transition-colors flex items-center justify-center z-50">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+        </svg>
+    </button>
+</body>
+</html>
